@@ -1,0 +1,131 @@
+﻿<html lang="ko">
+<head>
+    <style>
+        div.title {
+            width: 100%;
+            height: 7%;
+        }
+
+        div.video-container {
+            width: 100%;
+            height: 90%;
+        }
+
+        div.scanning {
+            width: 100%;
+            height: 3%;
+        }
+
+        #finger {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0px 0 0 0px;
+            text-align: center;
+        }
+
+        #finger_box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        #line {
+            width: 100%;
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -6px 0 0 -50%;
+            -webkit-animation: line 1.4s linear;
+            animation: line 1.4s linear infinite;
+        }
+        /*왜 있는지 모르겠음*/
+        /*@keyframes line {
+            0% {transform: translateY(-90px);}
+            50% {transform: translateY(90px);}
+            100% {transform: translateY(-90px);}
+        }*/
+
+        @-webkit-keyframes line { /*line animation for web*/
+            0% {
+                -webkit-transform: translateY(-90px);
+            }
+
+            50% {
+                -webkit-transform: translateY(90px);
+            }
+
+            100% {
+                -webkit-transform: translateY(-90px);
+            }
+        }
+
+        img {
+            border: 0 none;
+            max-width: 100%;
+            height: auto;
+            width: auto;
+            -ms-interpolation-mode: bicubic;
+            vertical-align: middle;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            text-align: center;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <script type="text/javascript" src="grid.js"></script>
+    <script type="text/javascript" src="version.js"></script>
+    <script type="text/javascript" src="detector.js"></script>
+    <script type="text/javascript" src="formatinf.js"></script>
+    <script type="text/javascript" src="errorlevel.js"></script>
+    <script type="text/javascript" src="bitmat.js"></script>
+    <script type="text/javascript" src="datablock.js"></script>
+    <script type="text/javascript" src="bmparser.js"></script>
+    <script type="text/javascript" src="datamask.js"></script>
+    <script type="text/javascript" src="rsdecoder.js"></script>
+    <script type="text/javascript" src="gf256poly.js"></script>
+    <script type="text/javascript" src="gf256.js"></script>
+    <script type="text/javascript" src="decoder.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+    <script type="text/javascript" src="findpat.js"></script>
+    <script type="text/javascript" src="alignpat.js"></script>
+    <script type="text/javascript" src="databr.js"></script>
+    <script type="text/javascript" src="main.js" charset="euc-kr"></script>
+</head>
+<body>
+    <div class="title">
+        <h1>
+            코드스캐너
+        </h1>
+    </div>
+    <div class="video-container">
+        <div id="finger">
+            <div id="finger_box">
+                <img id="zhiwen" src="images/zhiwen.png" alt="">
+                <img id="line" src="images/line.png" alt="">
+                <p id="info"></p>
+            </div>
+        </div>
+        <video id="video-preview" style="width: 100%;height: 100%;" autoplay></video>
+        <canvas id="qr-canvas" class="hidden" style="display:none"></canvas>
+    </div>
+    <div class="scanning">
+        <p> 스캔중 </p>
+        <p></p>
+    </div>
+</body>
+</html>
